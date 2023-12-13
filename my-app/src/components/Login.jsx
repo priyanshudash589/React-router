@@ -1,16 +1,18 @@
 import React from 'react'
 import { useState } from 'react';
-
-const Login = ({onLogin}) => {
+import Dashbd from './Dashbd';
+import { useNavigate } from 'react-router-dom';
+const Login = () => {
 
     const [inputValue, setInputValue] = useState('');
+    const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
-  const handleLogToConsole = () => {
-    onLogin(inputValue);
+  const handleLogin = () => {
+    navigate(`/dashboard/${inputValue}`);
   };
 
 
@@ -30,7 +32,7 @@ const Login = ({onLogin}) => {
                     <input type="password"  className='border-2 border-red-500 h-[3rem] w-[35rem] text-center' placeholder="Enter Password"></input>
 
                     <div>
-                      <button onClick={handleLogToConsole} className='bg-slate-800 h-[5rem] w-[15rem] text-white rounded-full'>Click Here to register in the database </button>
+                      <button onClick={handleLogin} path="/dashboard" exact component={Dashbd} className='bg-slate-800 h-[5rem] w-[15rem] text-white rounded-full'>Click Here to register in the database </button>
                     </div>
                 </div>
 

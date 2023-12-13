@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './Login';
 import Dashboard from './Dashbd';
 
 function Routing() {
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/card" exact component={Dashboard} />
-      </Switch>
+      <Routes>
+        <Route path="/login" exact component={Login} />
+        <Route path="/dashboard/:name" exact component={Dashboard} />
+      </Routes>
     </Router>
   );
 }
